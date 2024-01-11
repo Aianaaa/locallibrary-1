@@ -1,6 +1,6 @@
 # Description
 The project topic - LocalLibrary  
-The project was created by the following students: *Aiana Ibraiim kyzy 41288, Aliia Sherikbaeva 41297, Aitbek Amanidinov 41782*  
+The project was created by the following students: **Aiana Ibraiim kyzy 41288, Aliia Sherikbaeva 41297, Aitbek Amanidinov 41782**
 This project is an simulation of digital book shop, 
 where you could manage 4 types of content: books, authors, genres, and collections.
 
