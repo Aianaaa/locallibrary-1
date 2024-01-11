@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  library-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: libuser
+      POSTGRES_PASSWORD: libpass123
+      POSTGRES_DB: locallibrary
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod", "-U", "libuser" ]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 30s
+#  locallibrary:
+#    build: .
+#    command: ./setup.sh
+#    depends_on:
+#      library-db:
+#        condition: service_healthy
+#    ports:
+#      - 8000:8000
+#    volumes:
+#      - .:/locallibrary
+  locallibrary:
+    image: anarkozhoev/locallibrary
+    depends_on:
+      library-db:
+        condition: service_healthy
+    ports:
+      - 8000:8000
